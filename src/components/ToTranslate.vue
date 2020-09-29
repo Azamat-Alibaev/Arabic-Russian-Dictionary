@@ -3,8 +3,8 @@
     <input
       class="element-border-and-bg "
       type="text"
-      :value="word"
-      @input="$emit('update:word', $event.target.value)"
+      :value="toTranslate"
+      @input="$emit('update:toTranslate', $event.target.value)"
     />
     <select
       class="element-border-and-bg"
@@ -26,7 +26,7 @@
 const languages = ['Russian', 'Arabic']
 export default {
   props: {
-    word: {
+    toTranslate: {
       type: String,
       default: ''
     },

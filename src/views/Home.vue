@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <ToTranslate
-      v-model:word.trim="toTranslateObject.word"
+      v-model:toTranslate.trim="toTranslateObject.toTranslate"
       v-model:fromLanguage="toTranslateObject.fromLanguage"
     />
     <pre>{{ toTranslateObject }}</pre>
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, reactive, watchEffect } from 'vue'
 import ToTranslate from '@/components/ToTranslate.vue'
 import Translated from '@/components/Translated.vue'
 
@@ -27,13 +27,18 @@ export default defineComponent({
   },
   setup() {
     const toTranslateObject = reactive({
-      word: '',
+      toTranslate: '',
       fromLanguage: 'Arabic'
     })
     const translatedObject = reactive({
-      toTranslate: toTranslateObject.word,
+      toTranslate: toTranslateObject.toTranslate,
       fromLanguage: toTranslateObject.fromLanguage,
       translated: ''
+    })
+
+    watchEffect(() => {
+      translatedObject.toTranslate = toTranslateObject.toTranslate
+      translatedObject.fromLanguage = toTranslateObject.fromLanguage
     })
 
     return {

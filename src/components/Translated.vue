@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="border-2 border-gray-500 m-2 p-2">
+    <div class="border-2 border-gray-500 m-2 p-2 rounded-lg">
       <span> {{ fromLanguage }}</span>
       word "<span>{{ toTranslate }}</span
       >" means 
