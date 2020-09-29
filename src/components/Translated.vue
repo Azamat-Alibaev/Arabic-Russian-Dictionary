@@ -1,33 +1,31 @@
 <template>
   <div>
-    <TranslatedForm
-      v-model:toTranslate="translatedObject.toTranslate"
-      v-model:fromLanguage="translatedObject.fromLanguage"
-    />
-    <pre>{{ translatedObject }}</pre>
+    <div class="border-2 border-gray-500 m-2 p-2">
+      <span> {{ fromLanguage }}</span>
+      word "<span>{{ toTranslate }}</span
+      >" means 
+    </div>
   </div>
 </template>
 
 <script>
-import TranslatedForm from '@/components/TranslatedForm.vue'
 export default {
   props: {
     toTranslate: {
-      type: Object,
-      required: true
+      type: String,
+      default: ''
+    },
+    fromLanguage: {
+      type: String,
+      default: ''
     }
-  },
-  components: {
-    TranslatedForm
   },
   setup() {
-    const translatedObject = {
-      toTranslate: 'Azamat',
-      fromLanguage: 'Arabic',
-      translated: ''
-    }
     return {
-      translatedObject
+      translated: {
+        type: String,
+        default: ''
+      }
     }
   }
 }

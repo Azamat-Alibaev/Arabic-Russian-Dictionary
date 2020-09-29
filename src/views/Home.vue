@@ -1,14 +1,19 @@
 <template>
   <div class="home">
-    <ToTranslate />
+    <ToTranslate
+      v-model:word.trim="toTranslateObject.word"
+      v-model:fromLanguage="toTranslateObject.fromLanguage"
+    />
+
     <Translated
-      :toTranslate="{ toTranslate: 'Azamat', fromLanguage: 'Arabic' }"
+      v-model:toTranslate="translatedObject.toTranslate"
+      v-model:fromLanguage="translatedObject.fromLanguage"
     />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive } from 'vue'
 import ToTranslate from '@/components/ToTranslate.vue'
 import Translated from '@/components/Translated.vue'
 
@@ -17,6 +22,22 @@ export default defineComponent({
   components: {
     ToTranslate,
     Translated
+  },
+  setup() {
+    const toTranslateObject = reactive({
+      word: '',
+      fromLanguage: 'Arabic'
+    })
+    const translatedObject = reactive({
+      toTranslate: toTranslateObject.word,
+      fromLanguage: toTranslateObject.fromLanguage,
+      translated: ''
+    })
+
+    return {
+      toTranslateObject,
+      translatedObject
+    }
   }
 })
 </script>

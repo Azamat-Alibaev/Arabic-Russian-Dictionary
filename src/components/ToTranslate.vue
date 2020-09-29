@@ -1,31 +1,53 @@
 <template>
-  <div>
-    <ToTranslateForm
-      v-model:word.trim="toTranslateObject.word"
-      v-model:fromLanguage="toTranslateObject.fromLanguage"
+  <div class="p-2 m-2 rounded">
+    <input
+      class="element-border-and-bg "
+      type="text"
+      :value="word"
+      @input="$emit('update:word', $event.target.value)"
     />
-    <pre>{{ toTranslateObject }}</pre>
+    <select
+      class="element-border-and-bg"
+      name="fromLanguage"
+      @change="$emit('update:fromLanguage', $event.target.value)"
+    >
+      <option
+        v-for="lang of languages"
+        :value="lang"
+        :key="lang"
+        :selected="lang === fromLanguage"
+        >{{ lang }}
+      </option>
+    </select>
   </div>
 </template>
 
 <script>
-import { reactive } from 'vue'
-import ToTranslateForm from '@/components/ToTranslateForm.vue'
-
+const languages = ['Russian', 'Arabic']
 export default {
-  components: {
-    ToTranslateForm
+  props: {
+    word: {
+      type: String,
+      default: ''
+    },
+    fromLanguage: {
+      type: String,
+      default: ''
+    }
   },
   setup() {
-    const toTranslateObject = reactive({
-      word: '',
-      fromLanguage: 'Arabic'
-    })
     return {
-      toTranslateObject
+      languages
     }
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped>
+.element-border-and-bg {
+  @apply border-gray-600 p-1 m-1 bg-gray-800  rounded-full border-2;
+}
+.element-border-and-bg:hover {
+  @apply bg-gray-300 text-gray-800;
+}
+</style>
