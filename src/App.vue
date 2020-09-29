@@ -8,7 +8,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  @apply text-gray-300 bg-gray-700 w-full h-full border-4 h-screen;
+  @apply text-gray-300 bg-gray-700 text-gray-400 w-full h-full border-4 border-gray-500  h-screen;
 
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 m-2 rounded text-gray-400">
+  <div class="p-2 m-2 rounded">
     <form>
       <input
         class="element-border-and-bg "
