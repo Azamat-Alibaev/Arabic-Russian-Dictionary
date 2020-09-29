@@ -1,7 +1,7 @@
 <template>
   <div>
     <ToTranslateForm
-      v-model:word="toTranslateObject.word"
+      v-model:word.trim="toTranslateObject.word"
       v-model:fromLanguage="toTranslateObject.fromLanguage"
     />
     <pre>{{ toTranslateObject }}</pre>
