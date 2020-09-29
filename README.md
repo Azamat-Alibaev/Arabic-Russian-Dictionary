@@ -1,4 +1,4 @@
-# arabic-russian-dictionary
+# Arabic To Russian Dictionary
 
 ## Project setup
 ```
