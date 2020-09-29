@@ -4,11 +4,13 @@
       v-model:word.trim="toTranslateObject.word"
       v-model:fromLanguage="toTranslateObject.fromLanguage"
     />
+    <pre>{{ toTranslateObject }}</pre>
 
     <Translated
       v-model:toTranslate="translatedObject.toTranslate"
       v-model:fromLanguage="translatedObject.fromLanguage"
     />
+    <pre>{{ translatedObject }}</pre>
   </div>
 </template>
 
