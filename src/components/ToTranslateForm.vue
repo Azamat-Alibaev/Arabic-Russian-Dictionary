@@ -1,8 +1,8 @@
 <template>
-  <div class="p-2 m-2 rounded">
+  <div class="p-2 m-2 rounded text-gray-400">
     <form>
       <input
-        class="element-border-and-bg"
+        class="element-border-and-bg "
         type="text"
         :value="word"
         @input="$emit('update:word', $event.target.value)"

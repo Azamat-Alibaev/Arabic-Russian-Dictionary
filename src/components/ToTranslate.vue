@@ -19,7 +19,7 @@ export default {
   setup() {
     const toTranslateObject = reactive({
       word: '',
-      fromLanguage: ''
+      fromLanguage: 'Arabic'
     })
     return {
       toTranslateObject
