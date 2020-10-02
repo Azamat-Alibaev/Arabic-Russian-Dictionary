@@ -1,15 +1,16 @@
 <template>
   <div>
-    <div class="border-2 border-gray-500 m-2 p-2 rounded-lg">
+    <div v-bind="$attrs" class="w-1/2 block mr-auto ml-auto">
       <span> {{ fromLanguage }}</span>
       word "<span>{{ toTranslate }}</span
-      >" means 
+      >" means
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     toTranslate: {
       type: String,

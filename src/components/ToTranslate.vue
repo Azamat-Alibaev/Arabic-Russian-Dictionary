@@ -1,11 +1,12 @@
 <template>
   <div class="p-2 m-2 rounded">
     <input
-      v-bind="$attrs"
-      class=""
+      v-bind="{
+        ...$attrs,
+        onInput: () => $emit('update:toTranslate', $event.target.value)
+      }"
       type="text"
       :value="toTranslate"
-      @input="$emit('update:toTranslate', $event.target.value)"
     />
     <select
       v-bind="$attrs"

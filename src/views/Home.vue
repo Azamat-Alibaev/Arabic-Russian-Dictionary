@@ -10,6 +10,7 @@
     <Translated
       v-model:toTranslate="translatedObject.toTranslate"
       v-model:fromLanguage="translatedObject.fromLanguage"
+      class="element-border-and-bg"
     />
     <pre>{{ translatedObject }}</pre>
   </div>
