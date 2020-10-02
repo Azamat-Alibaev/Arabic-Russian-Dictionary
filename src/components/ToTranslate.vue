@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 const languages = ['Russian', 'Arabic']
 export default {
   inheritAttrs: false,
@@ -41,9 +41,9 @@ export default {
       default: ''
     }
   },
-  setup(props, { emit }) {
-    const updateToTranslate = event => {
-      let val = event.target.value
+  setup(props: any, { emit }) {
+    const updateToTranslate = (event: any) => {
+      let val: string = event.target.value
       if (props.toTranslateModifiers.capitalize) {
         val = val.charAt(0).toUpperCase() + val.slice(1)
       }
