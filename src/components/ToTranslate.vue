@@ -1,13 +1,14 @@
 <template>
   <div class="p-2 m-2 rounded">
     <input
-      class="element-border-and-bg "
+      v-bind="$attrs"
+      class=""
       type="text"
       :value="toTranslate"
       @input="$emit('update:toTranslate', $event.target.value)"
     />
     <select
-      class="element-border-and-bg"
+      v-bind="$attrs"
       name="fromLanguage"
       @change="$emit('update:fromLanguage', $event.target.value)"
     >
@@ -25,6 +26,8 @@
 <script>
 const languages = ['Russian', 'Arabic']
 export default {
+  inheritAttrs: false,
+  components: {},
   props: {
     toTranslate: {
       type: String,
@@ -43,11 +46,4 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
-.element-border-and-bg {
-  @apply border-gray-600 p-1 m-1 bg-gray-800  rounded-full border-2;
-}
-.element-border-and-bg:hover {
-  @apply bg-gray-300 text-gray-800;
-}
-</style>
+<style lang="css" scoped></style>

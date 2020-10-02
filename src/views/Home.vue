@@ -3,6 +3,7 @@
     <ToTranslate
       v-model:toTranslate.trim="toTranslateObject.toTranslate"
       v-model:fromLanguage="toTranslateObject.fromLanguage"
+      class="element-border-and-bg"
     />
     <pre>{{ toTranslateObject }}</pre>
 
@@ -48,3 +49,12 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+.element-border-and-bg {
+  @apply border-gray-600 p-1 m-1 bg-gray-800  rounded-full border-2;
+}
+.element-border-and-bg:hover {
+  @apply bg-gray-300 text-gray-800;
+}
+</style>
