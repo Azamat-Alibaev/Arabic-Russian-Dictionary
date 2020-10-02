@@ -1,12 +1,10 @@
 <template>
   <div class="p-2 m-2 rounded">
     <input
-      v-bind="{
-        ...$attrs,
-        onInput: () => $emit('update:toTranslate', $event.target.value)
-      }"
+      v-bind="$attrs"
       type="text"
       :value="toTranslate"
+      @input="updateToTranslate"
     />
     <select
       v-bind="$attrs"
@@ -34,14 +32,27 @@ export default {
       type: String,
       default: ''
     },
+    toTranslateModifiers: {
+      type: Object,
+      default: () => ({})
+    },
     fromLanguage: {
       type: String,
       default: ''
     }
   },
-  setup() {
+  setup(props, { emit }) {
+    const updateToTranslate = event => {
+      let val = event.target.value
+      if (props.toTranslateModifiers.capitalize) {
+        val = val.charAt(0).toUpperCase() + val.slice(1)
+      }
+
+      emit('update:toTranslate', val)
+    }
     return {
-      languages
+      languages,
+      updateToTranslate
     }
   }
 }

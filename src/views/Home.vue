@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <ToTranslate
-      v-model:toTranslate.trim="toTranslateObject.toTranslate"
+      v-model:toTranslate.trim.capitalize="toTranslateObject.toTranslate"
       v-model:fromLanguage="toTranslateObject.fromLanguage"
       class="element-border-and-bg"
     />
